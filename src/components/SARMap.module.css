@@ -1,0 +1,173 @@
+.figure {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+  margin: 0;
+  min-height: 0;
+  flex: 1;
+  position: relative;
+}
+
+.map {
+  flex: 1;
+  min-height: 220px;
+  background: var(--bg-base);
+}
+
+/* ── Toggle button ── */
+
+.toggleWrap {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.toggleBtn {
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--bg-panel);
+  color: var(--text-secondary);
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border-right: 1px solid var(--border);
+}
+
+.toggleBtn:last-child {
+  border-right: none;
+}
+
+.toggleBtn:hover:not(.disabled) {
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+.toggleBtn.active {
+  background: var(--green-dim);
+  color: var(--green-live);
+}
+
+.toggleBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.roiLegend {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: calc(100% - 145px);
+  padding: 8px 10px;
+  color: var(--text-primary);
+  background: rgba(13, 17, 23, 0.92);
+  border: 1px solid rgba(255, 59, 69, 0.75);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+.roiLegend > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.roiLegend strong {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.roiLegend small {
+  color: var(--text-secondary);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.roiSwatch {
+  width: 14px;
+  height: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  border: 2px solid #ff3b45;
+}
+
+.tileNotice {
+  position: absolute;
+  left: 50%;
+  bottom: 58px;
+  z-index: 1000;
+  transform: translateX(-50%);
+  max-width: calc(100% - 24px);
+  padding: 7px 10px;
+  color: var(--text-primary);
+  background: rgba(13, 17, 23, 0.92);
+  border: 1px solid var(--amber);
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ── Leaflet overrides ── */
+
+.map :global(.leaflet-control-attribution) {
+  background: rgba(13, 17, 23, 0.75) !important;
+  color: var(--text-muted) !important;
+  font-size: 9px !important;
+}
+
+.map :global(.leaflet-control-attribution a) {
+  color: var(--text-muted) !important;
+}
+
+.map :global(.leaflet-control-zoom a) {
+  background: var(--bg-panel) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border) !important;
+}
+
+.map :global(.leaflet-control-zoom a:hover) {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Caption ── */
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.captionLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.captionSub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--green-live);
+}
+
+.captionNote {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
