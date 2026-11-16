@@ -1,4 +1,4 @@
-# ForestWatch — SAR Deforestation Frontend
+# Observanam — SAR Deforestation Frontend
 
 React + Vite frontend for SAR change-detection demo.
 One page. Three inputs. Three images. Three numbers.
